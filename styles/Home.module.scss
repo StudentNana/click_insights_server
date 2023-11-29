@@ -1,0 +1,65 @@
+@import './variables.module.scss';
+
+
+.font_size_xxsmall {
+  font-size: $font-size-xxsmall;
+}
+
+.author {
+
+  position: relative;
+
+  .horizontal & {
+    min-height: 3.25rem;
+  }
+
+  &__image {
+    z-index: 1;
+    position: absolute !important;
+    width: 3rem;
+    height: 3rem;
+    transform: translateY(-50%);
+
+    .horizontal & {
+      transform: translateY(-10%);
+    }
+
+    .is--detail & {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    &:nth-child(2) {
+      left: 4.5rem;
+      z-index: 2;
+    }
+
+    & img {
+      border-radius: 50%;
+      border: 2px solid $grey-light;
+    }
+  }
+
+  &__name {
+    display: block;
+    padding-top: .4678rem;
+    padding-left: 3.1rem;
+
+    .horizontal & {
+      padding-top: 1.75rem;
+    }
+
+    .is--detail & {
+      padding-left: 4.1rem;
+    }
+
+    &.more-than-one {
+      padding-left: 5.9rem;
+    }
+  }
+
+}
+
+.color-blue-light {
+  color: $blue-text;
+}
