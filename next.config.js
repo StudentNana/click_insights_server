@@ -10,7 +10,6 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
-  distDir: "dist",
   reactStrictMode: true,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
