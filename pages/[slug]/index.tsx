@@ -21,7 +21,6 @@ export  default function Page() {
         if (query?.slug) {
             getInsightContent(query?.slug)
             .then(insight => {
-                console.log('insight useEffect', insight);
                 // TODO: format image url
                 if (insight) {
                     insight.image = `${url}/assets/${insight?.image}`;

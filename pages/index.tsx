@@ -85,6 +85,7 @@ export default function Home({ insights }: { insights: Insight[] }) {
   
   // This gets called on every request
 export async function getServerSideProps() {
+  const url: string = 'https://b3df-2a02-8109-9303-a400-3dbe-9f0a-cd9b-e2db.ngrok-free.app';
   try {
     const record = await directus.request(readItems('insights', {
       limit: -1,
@@ -100,7 +101,8 @@ export async function getServerSideProps() {
 
     // format image url
     insights.forEach((insight) => {
-      insight.image = `${process.env.DIRECTUS_URL}/assets/${insight.image}`;
+      // insight.image = `${process.env.DIRECTUS_URL}/assets/${insight.image}`;
+      insight.image = `${url}/assets/${insight.image}`;
     });
 
     return {
