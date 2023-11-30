@@ -5,6 +5,42 @@
   font-size: $font-size-xxsmall;
 }
 
+.py_4 {
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+}
+
+.pt_6 {
+  padding-top: 5.625rem;
+}
+
+.px_2 {
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
+}
+
+.pb_2 {
+  padding-bottom: 1.875rem;
+}
+
+.mt_1 {
+  margin-top: 0.9375rem;
+}
+
+.mb_1 {
+  margin-top: 0.9375rem;
+}
+
+.mb_4 {
+  margin-bottom: 3.75rem;
+}
+
+.mb_3 {
+  margin-bottom: 2.8125rem
+}
+
+
+
 .author {
 
   position: relative;
@@ -60,6 +96,10 @@
 
 }
 
-.color-blue-light {
+.color_blue_light {
   color: $blue-text;
+}
+
+.small {
+  color: #0a0a0a;
 }

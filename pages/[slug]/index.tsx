@@ -12,11 +12,11 @@ import Link from 'next/link';
 export  default function Page() {
 
     const url: string = 'https://b3df-2a02-8109-9303-a400-3dbe-9f0a-cd9b-e2db.ngrok-free.app';
-    // const url: string = 'http://localhost:8055';
+    // const url: string | undefined = process.env.DIRECTUS_URL;
     const { query } = useRouter();
     // const router = useRouter();
     const [insight, setInsight] = useState<Insight | undefined>(undefined);
-
+    
     useEffect(() => {
         if (query?.slug) {
             getInsightContent(query?.slug)
@@ -39,15 +39,15 @@ export  default function Page() {
             <section id="content" className="bg">
                 {/* <p>Slug: {JSON.stringify(insight, null, 4)}</p> */}
 
-                <div className="grid-container pt-6">
+                <div className={`${styles.pt_6} grid-container`}>
                     <div className="grid-x grid-padding-x align-center">
                         <div className="cell small-11 large-10">
-                            <div className="grid-x  mb-3">
+                            <div className={`${styles.mb_3} grid-x`}>
                                 <div className="cell small-12 medium-10 xlarge-9">
-                                    <Link href="/" title="Alle Artikel ansehen" className="text-decoration-none font-size-small"><i className="icon icon--left"> </i>Alle Artikel ansehen</Link>
+                                    <Link href="/" title="Alle Artikel ansehen" className="text-decoration-none font-size-small"><i className="icon icon--left"> </i> &lt;-- Alle Artikel ansehen</Link>
                                 </div>
                             </div>
-                            <div className="grid-x mb-4">
+                            <div className={`${styles.mb_4} grid-x`}>
                                 <div className="cell small-12 medium-10 xlarge-9">
                                     <h1 className="font-size-super">{insight?.title}</h1>
                                     <picture>

@@ -18,7 +18,6 @@ type Insight = {
   slug: string
 }
 
-
 /*  
   * Dynamic Server Side Rendering (SSR)
 */
@@ -32,7 +31,7 @@ export default function Home({ insights }: { insights: Insight[] }) {
           <HeaderInsightPage/>
 
           {/* START BLOCKLIST */}
-          <div className="grid-container py-4">
+          <div className={`grid-container ${styles.py_4}`}>
             <div className="grid-x align-center">
               <div className="cell small-11 xlarge-10">
                 <div className="grid-container full">
@@ -48,7 +47,7 @@ export default function Home({ insights }: { insights: Insight[] }) {
                             <img src={insight.image} width='500px' height='300px' alt={insight.slug} loading="lazy" />
                           </picture>
 
-                          <div className={styles.author}>
+                          <div className={`${styles.author} ${styles.px_2}`}>
                             <picture className={styles.author__image}>
                               <img src='/test.jpg' width='60px' height='60px' alt='author_name' loading="lazy" />
                             </picture>
@@ -56,12 +55,12 @@ export default function Home({ insights }: { insights: Insight[] }) {
                             <span className={`${styles.author__name} ${styles.font_size_xxsmall}`}>{insight.author}</span>
                           </div>
 
-                          <div className="px-2 pt-1 pb-2">
-                            <p className={`${styles["color-blue-light"]} mt-0 mb-1`}>{insight.title}</p>
-                            <small>Perfomance-Marketing / Lead-Generierung / SEO / UI/UX </small>
-                            <p className={`${styles["color-blue-light"]}mt-1`}>
+                          <div className={`pt-1 ${styles.pb_2} ${styles.px_2}`}>
+                            <p className={`${styles.color_blue_light} mt-0 ${styles.mb_1}`}>{insight.title}</p>
+                            <small className={styles.small}>Perfomance-Marketing / Lead-Generierung / SEO / UI/UX </small>
+                            <p className={`${styles.color_blue_light} ${styles.mt_1}`}>
                               <small>{insight.button_label}
-                                <i className="icon"> -- </i>
+                                <i className="icon"> --&gt; </i>
                               </small>
                             </p>
                           </div>
