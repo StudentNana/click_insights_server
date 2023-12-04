@@ -1,4 +1,4 @@
-import styles from '../styles/headerInsightPage.module.scss';
+import styles from './headerInsightPage.module.scss';
 
 export default function HeaderInsightPage() {
     return (
@@ -10,7 +10,7 @@ export default function HeaderInsightPage() {
 
                     <h1 className={styles.title}>Insights</h1>
                     <h2 className={styles.subtitle}>Unsere Schnittstelle für digitale Kompetenz</h2>
-                    <p>Welche Trends setzen sich aktuell durch? Welches digitale Thema wird
+                    <p className={styles.content}>Welche Trends setzen sich aktuell durch? Welches digitale Thema wird
                         gerade heiß diskutiert? Unsere Expertinnen und Experten teilen mit Ihnen ihr
                         Know-how in spannenden Blog-Beiträgen, Artikeln und Social-Media-Posts.</p>
 

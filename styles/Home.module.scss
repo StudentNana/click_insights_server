@@ -1,5 +1,10 @@
 @import './variables.module.scss';
 
+.content {
+  padding: 0;
+  margin: 6rem;
+  scrollbar-gutter: stable;
+}
 
 .font_size_xxsmall {
   font-size: $font-size-xxsmall;
@@ -39,7 +44,13 @@
   margin-bottom: 2.8125rem
 }
 
+.color_blue_light {
+  color: $blue-text;
+}
 
+.small {
+  color: #0a0a0a;
+}
 
 .author {
 
@@ -94,12 +105,4 @@
     }
   }
 
-}
-
-.color_blue_light {
-  color: $blue-text;
-}
-
-.small {
-  color: #0a0a0a;
 }

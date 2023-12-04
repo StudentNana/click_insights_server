@@ -1,20 +1,20 @@
-import { useRouter } from 'next/router'
-import { Insight } from '../../lib/model'
-import 'foundation-sites/dist/css/foundation.css';
-import directus from '../../lib/directus';
-import { readItems } from '@directus/sdk';
-import { notFound } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import getInsightContent from '@/lib/getInsightContent';
-import styles from '../../styles/Home.module.scss';
 import Link from 'next/link';
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react';
+
+import { Insight } from '../../../lib/model'
+import ArrowLeftIcon from '@/components/icons/icon-arrow-left';
+import getInsightContent from '@/lib/getInsightContent';
+
+import 'foundation-sites/dist/css/foundation.css';
+import styles from '../../../styles/main.module.scss';
 
 export  default function Page() {
 
-    const url: string = 'https://b3df-2a02-8109-9303-a400-3dbe-9f0a-cd9b-e2db.ngrok-free.app';
+    const url: string = 'http://localhost:8055';
+    // const url: string = 'https://b3df-2a02-8109-9303-a400-3dbe-9f0a-cd9b-e2db.ngrok-free.app';
     // const url: string | undefined = process.env.DIRECTUS_URL;
     const { query } = useRouter();
-    // const router = useRouter();
     const [insight, setInsight] = useState<Insight | undefined>(undefined);
     
     useEffect(() => {
@@ -31,24 +31,26 @@ export  default function Page() {
                 console.error('Error', error);
             })
         }
-    }, [query?.slug])
+    }, [query?.slug]);
 
     return (
         <>
             <section id="content" className="bg">
-                {/* <p>Slug: {JSON.stringify(insight, null, 4)}</p> */}
-
                 <div className={`${styles.pt_6} grid-container`}>
                     <div className="grid-x grid-padding-x align-center">
                         <div className="cell small-11 large-10">
                             <div className={`${styles.mb_3} grid-x`}>
                                 <div className="cell small-12 medium-10 xlarge-9">
-                                    <Link href="/" title="Alle Artikel ansehen" className="text-decoration-none font-size-small"><i className="icon icon--left"> </i> &lt;-- Alle Artikel ansehen</Link>
+                                    <Link href="/insights" className="text-decoration-none font-size-small"><i className="icon icon--left"> </i>
+                                        <ArrowLeftIcon /> 
+                                            Alle Artikel ansehen
+                                    </Link>
                                 </div>
                             </div>
                             <div className={`${styles.mb_4} grid-x`}>
                                 <div className="cell small-12 medium-10 xlarge-9">
-                                    <h1 className="font-size-super">{insight?.title}</h1>
+                                    <h1 className={styles.font_size_super}>{insight?.title}</h1>
+                                    <h2 className={`${styles.font_size_medium} mb-2`}> {insight?.keywords}</h2>
                                     <picture>
                                         <img src={insight?.image} width="1280" height="720" alt="Conversions im Onlinemarketing" loading="lazy" />
                                     </picture>
@@ -74,32 +76,6 @@ export  default function Page() {
                 </div>
 
             </section>
-
         </>
     );
 }
-
-
-// async function getPost(slug: string | string[] | undefined) {
-//     try {
-//         console.log('SLUG GET POST', slug)
-//         const record = await directus.request(
-//             readItems('insights', {
-//                 filter: {
-//                     slug: {
-//                         _eq: slug,
-//                     },
-//                 }
-//             }
-//             ));
-
-//         const post: Insight[] = record.map(insightMapper);
-//         return post;
-
-//     } catch (error) {
-//         notFound();
-//     }
-// }
-
-
-
